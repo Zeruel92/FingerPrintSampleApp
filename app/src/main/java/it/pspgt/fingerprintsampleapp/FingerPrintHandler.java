@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.CancellationSignal;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.widget.Toast;
 
 public class FingerPrintHandler extends FingerprintManager.AuthenticationCallback {
@@ -28,5 +29,16 @@ public class FingerPrintHandler extends FingerprintManager.AuthenticationCallbac
     @Override
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
         Toast.makeText(context, "Impronta letta", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onAuthenticationError(int errMsgId, CharSequence errString) {
+        Toast.makeText(context, "Qualcosa è andato storto errID: " + errMsgId, Toast.LENGTH_SHORT).show();
+        Log.e("FHandler", errString.toString());
+    }
+
+    @Override
+    public void onAuthenticationFailed() {
+        Toast.makeText(context, "Impronta non riconosciuta", Toast.LENGTH_LONG).show();
     }
 }

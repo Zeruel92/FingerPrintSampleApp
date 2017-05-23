@@ -29,6 +29,7 @@ public class FingerPrintHandler extends FingerprintManager.AuthenticationCallbac
     @Override
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
         Toast.makeText(context, "Impronta letta", Toast.LENGTH_LONG).show();
+        Log.i("FHandler", "Impronta riconosciuta");
     }
 
     @Override
@@ -40,5 +41,6 @@ public class FingerPrintHandler extends FingerprintManager.AuthenticationCallbac
     @Override
     public void onAuthenticationFailed() {
         Toast.makeText(context, "Impronta non riconosciuta", Toast.LENGTH_LONG).show();
+        Log.i("FHandler", "Impronta non associata al dispositivo");
     }
 }

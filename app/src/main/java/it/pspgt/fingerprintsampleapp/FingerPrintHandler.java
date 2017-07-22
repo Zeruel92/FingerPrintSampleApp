@@ -7,15 +7,18 @@ import android.hardware.fingerprint.FingerprintManager;
 import android.os.CancellationSignal;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class FingerPrintHandler extends FingerprintManager.AuthenticationCallback {
 
     private CancellationSignal cancellationSignal;
     private Context context;
+    private TextView textView;
 
-    public FingerPrintHandler(Context context) {
+    public FingerPrintHandler(Context context, TextView textView) {
         this.context = context;
+        this.textView = textView;
     }
 
     public void startAuth(FingerprintManager manager, FingerprintManager.CryptoObject cryptoObject) {
@@ -30,6 +33,7 @@ public class FingerPrintHandler extends FingerprintManager.AuthenticationCallbac
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
         Toast.makeText(context, "Impronta letta", Toast.LENGTH_LONG).show();
         Log.i("FHandler", "Impronta riconosciuta");
+        textView.setText("Impronta riconosciuta!");
     }
 
     @Override

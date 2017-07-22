@@ -7,18 +7,15 @@ import android.hardware.fingerprint.FingerprintManager;
 import android.os.CancellationSignal;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class FingerPrintHandler extends FingerprintManager.AuthenticationCallback {
 
     private CancellationSignal cancellationSignal;
     private Context context;
-    private TextView textView;
 
-    public FingerPrintHandler(Context context, TextView textView) {
+    public FingerPrintHandler(Context context) {
         this.context = context;
-        this.textView = textView;
     }
 
     public void startAuth(FingerprintManager manager, FingerprintManager.CryptoObject cryptoObject) {

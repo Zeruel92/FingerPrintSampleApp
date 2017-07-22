@@ -30,7 +30,6 @@ public class FingerPrintHandler extends FingerprintManager.AuthenticationCallbac
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
         Toast.makeText(context, "Impronta letta", Toast.LENGTH_LONG).show();
         Log.i("FHandler", "Impronta riconosciuta");
-        textView.setText("Impronta riconosciuta!");
     }
 
     @Override
